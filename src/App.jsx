@@ -2,12 +2,7 @@ import "./App.css";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
-const Card = styled.div`
-  border: 1px solid black;
-  background-color: white;
-  color: black;
-  border-radius: 8px;
-`;
+import Card from "./components/Card";
 const token = localStorage.getItem("accessToken");
 console.log(token);
 const options = {
@@ -30,10 +25,9 @@ function App() {
     async function getPosts() {
       console.log("inne");
       try {
-        const response = await fetch(url, {
-          options,
-        });
+        const response = await fetch(url, options);
         const result = await response.json();
+        setPosts(result);
       } catch (e) {
         console.log("error: ", e);
       }
@@ -46,11 +40,7 @@ function App() {
       {posts
         ? posts.map((ele) => {
             console.log(posts);
-            return (
-              <Card>
-                <p>Hello</p>
-              </Card>
-            );
+            return <Card item={ele} />;
           })
         : ""}
       <button onClick={() => console.log("posts: ", posts)}> log posts</button>
