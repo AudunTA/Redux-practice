@@ -15,7 +15,8 @@ const options = {
   },
 };
 const baseUrl = "https://nf-api.onrender.com/api/v1/social";
-const url = "https://nf-api.onrender.com/api/v1/social/posts";
+const url =
+  "https://nf-api.onrender.com/api/v1/social/posts/?_author=true&_comments=true&_reactions=true";
 
 function App() {
   const dispatch = useDispatch();
