@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
 const HeaderDiv = styled.div`
   display: flex;
   border: 1px solid black;
@@ -24,6 +25,8 @@ function Header(props) {
     setEmail(e.target.value);
     console.log(email);
   };
+  const postsState = useSelector((state) => state.posts);
+  const dispatch = useDispatch();
   const onPasswordChange = (e) => {
     setPassword(e.target.value);
   };
@@ -67,6 +70,9 @@ function Header(props) {
           placeholder="password"
         />
         <ButtonPrimary onClick={handleLogIn}>Log In</ButtonPrimary>
+        <ButtonPrimary onClick={() => console.log(postsState)}>
+          log redux
+        </ButtonPrimary>
       </div>
     </HeaderDiv>
   );
