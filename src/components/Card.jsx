@@ -13,7 +13,7 @@ function Card(props) {
   return (
     <Carddiv>
       <h2>{title}</h2>
-      <p>{body}</p>
+      <p>body: {body}</p>
     </Carddiv>
   );
 }
