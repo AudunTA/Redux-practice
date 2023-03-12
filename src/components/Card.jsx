@@ -62,10 +62,7 @@ function Card(props) {
   return (
     <Carddiv key={id}>
       <h2>{title}</h2>
-<<<<<<< HEAD
-      <p> {body}</p>
-=======
-      <p>{body}</p>
+      <p>body: {body}</p>
       <p>likes: {likes}</p>
       {media ? <img src={media} style={{ width: "100%" }}></img> : ""}
       <ButtonLiked liked={liked} key={liked} onClick={() => handleLike({ id })}>
@@ -84,7 +81,6 @@ function Card(props) {
       <CommentContainer>
         {showComments ? <DisplayComments postID={id} /> : ""}
       </CommentContainer>
->>>>>>> 13e716b25e712206f798dd061df2b9651a4d7dcc
     </Carddiv>
   );
 }
