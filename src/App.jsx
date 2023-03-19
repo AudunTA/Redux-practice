@@ -4,36 +4,15 @@ import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Card from "./components/Card";
 import { useDispatch, useSelector } from "react-redux";
-import { addPosts } from "./components/postsSlice";
+import PostsAPI from "./components/API/PostsAPI";
+import "@fontsource/poppins";
 
-const token = localStorage.getItem("accessToken");
-console.log(token);
-const options = {
-  headers: {
-    "content-Type": "application/json",
-    Authorization: `Bearer ${token}`,
-  },
-};
 const baseUrl = "https://nf-api.onrender.com/api/v1/social";
-const url =
-  "https://nf-api.onrender.com/api/v1/social/posts/?_author=true&_comments=true&_reactions=true";
 
 function App() {
   const dispatch = useDispatch();
   const postsState = useSelector((state) => state.posts);
-  useEffect(() => {
-    async function getPosts() {
-      try {
-        const response = await fetch(url, options);
-        const result = await response.json();
-        dispatch(addPosts(result));
-        console.log(postsState);
-      } catch (e) {
-        console.log("error: ", e);
-      }
-    }
-    getPosts();
-  }, []);
+  PostsAPI();
   return (
     <div className="App">
       <Header baseUrl={baseUrl} />

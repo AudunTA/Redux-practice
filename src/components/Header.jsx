@@ -1,20 +1,13 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-const HeaderDiv = styled.div`
-  display: flex;
-  border: 1px solid black;
-  justify-content: space-between;
-  align-items: center;
-`;
-const LogginInputs = styled.input`
-  border: 1px solid black;
-`;
-const ButtonPrimary = styled.button`
-  background-color: blue;
-  border: 1px solid black;
-  color: white;
-`;
+import {
+  HeaderDiv,
+  LogginInputs,
+  ButtonPrimary,
+  NavDiv,
+  SearchIconHeader,
+} from "./styles/Header.styled";
+import SearchIcon from "@mui/icons-material/Search";
 function Header(props) {
   const baseUrl = props.baseUrl;
   console.log(baseUrl);
@@ -58,21 +51,20 @@ function Header(props) {
   return (
     <HeaderDiv>
       <h1>Logo</h1>
+      <NavDiv>
+        <ul>
+          <li>Explore</li>
+          <li>Friends</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </NavDiv>
       <div className="input-fields">
-        <LogginInputs
-          value={email}
-          onChange={onEmailChange}
-          placeholder="email"
-        />
-        <LogginInputs
-          value={password}
-          onChange={onPasswordChange}
-          placeholder="password"
-        />
-        <ButtonPrimary onClick={handleLogIn}>Log In</ButtonPrimary>
-        <ButtonPrimary onClick={() => console.log(postsState)}>
-          log redux
-        </ButtonPrimary>
+        <SearchIconHeader>
+          <SearchIcon />
+        </SearchIconHeader>
+
+        <p>Sign In</p>
       </div>
     </HeaderDiv>
   );

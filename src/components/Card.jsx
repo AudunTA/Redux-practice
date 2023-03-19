@@ -1,43 +1,17 @@
 import React from "react";
-import styled from "styled-components";
+
 import { likePost, unLikePost } from "./postsSlice";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import DisplayComments from "./DisplayComments";
-const Carddiv = styled.div`
-  border: 1px solid black;
-  border-radius: 8px;
-  max-width: 400px;
-  margin: 5px auto;
-`;
-
-const ButtonLiked = styled.button`
-  background-color: ${(props) =>
-    props.liked ? "red" : "rgba(81, 69, 229, 0.9)"};
-  color: white;
-  border: 1px solid #e4e4e7;
-  padding: 5px 15px;
-  cursor: pointer;
-`;
-const PrimaryButton = styled.button`
-  background-color: rgba(81, 69, 229, 0.9);
-  color: white;
-  border: 1px solid #e4e4e7;
-  padding: 5px 15px;
-  cursor: pointer;
-`;
-const ButtonComments = styled.button`
-  background-color: white;
-  border: 1px solid #e4e4e7;
-  padding: 5px 15px;
-  cursor: pointer;
-`;
-const CommentContainer = styled.div`
-  display: flex;
-`;
-const CommentInputDiv = styled.div`
-  display: flex;
-`;
+import {
+  Carddiv,
+  ButtonLiked,
+  ButtonComments,
+  PrimaryButton,
+  CommentContainer,
+  CommentInputDiv,
+} from "./styles/Card.styled";
 function Card(props) {
   const [liked, setLiked] = useState(false); // Declaring liked using useState
   const [showComments, setShowComments] = useState(false);
