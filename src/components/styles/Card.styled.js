@@ -1,11 +1,9 @@
 import styled from "styled-components";
 
 export const Carddiv = styled.div`
-  border: 1px solid black;
-  border-radius: 8px;
-  max-width: 400px;
-  background-color: #18273f;
-  margin: 5px auto;
+  display: flex;
+  font-family: Poppins;
+  margin: 10px;
 `;
 
 export const ButtonLiked = styled.button`

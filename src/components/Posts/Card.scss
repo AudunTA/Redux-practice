@@ -1,0 +1,24 @@
+.avatar-div {
+  display: flex;
+  flex-direction: column;
+  font-family: Poppins;
+  font-size: 12px;
+  text-align: center;
+  margin: 10px;
+}
+.avatar_post {
+  width: 68px;
+  height: 68px;
+}
+.content-post {
+  flex: 1;
+}
+.content-post h2 {
+  background-color: #1b3152;
+  line-height: 50px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 400;
+  font-size: 18px;
+  padding-left: 10px;
+}

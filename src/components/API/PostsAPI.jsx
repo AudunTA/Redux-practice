@@ -10,7 +10,6 @@ const options = {
     Authorization: `Bearer ${token}`,
   },
 };
-const baseUrl = "https://nf-api.onrender.com/api/v1/social";
 const url =
   "https://nf-api.onrender.com/api/v1/social/posts/?_author=true&_comments=true&_reactions=true";
 
@@ -22,7 +21,6 @@ function PostsAPI() {
         const response = await fetch(url, options);
         const result = await response.json();
         dispatch(addPosts(result));
-        console.log(postsState);
       } catch (e) {
         console.log("error: ", e);
       }
