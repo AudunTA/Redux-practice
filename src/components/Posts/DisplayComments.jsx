@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import styled from "styled-components";
+import "./Card.scss";
 const CommentsDiv = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: red;
+  background-color: var(--navy100);
+  border-radius: 12px;
+  width: 100%;
+  margin-left: 75px;
 `;
 const token = localStorage.getItem("accessToken");
 console.log(token);
@@ -23,6 +27,7 @@ function DisplayComments(props) {
       try {
         const response = await fetch(commentUrl, options);
         const result = await response.json();
+        console.log(result);
         setComments(result.comments);
         console.log(result.comments);
       } catch (e) {
@@ -35,7 +40,19 @@ function DisplayComments(props) {
     <CommentsDiv>
       {comments.length >= 1
         ? comments.map((ele) => {
-            return <p key={ele.id}>{ele.body}</p>;
+            return (
+              <div className="comment" key={ele.id}>
+                <div className="comment-avatar">
+                  <img src={ele.author.avatar} className="avatar_post"></img>
+                  <p>author</p>
+                </div>
+                <div className="comment-section">
+                  <p>{ele.author.name}</p>
+                  <p>Posted 6 months ago</p>
+                  <p>{ele.body}</p>
+                </div>
+              </div>
+            );
           })
         : ""}
     </CommentsDiv>

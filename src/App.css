@@ -1,3 +1,9 @@
+:root {
+  --navy100: rgba(50, 138, 241, 0.1);
+  --navy200: rgba(50, 138, 241, 0.07);
+  --navyHover: rgba(50, 138, 241, 0.12);
+  --backgroundDark: #151f32;
+}
 body {
-  background-color: #151f32;
+  background-color: var(--backgroundDark);
 }

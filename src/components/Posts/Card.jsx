@@ -6,13 +6,18 @@ import { useState } from "react";
 import DisplayComments from "./DisplayComments";
 import {
   Carddiv,
-  ButtonLiked,
   ButtonComments,
   PrimaryButton,
   CommentContainer,
   CommentInputDiv,
+  BtnLikes,
+  BtnComments,
 } from "../styles/Card.styled";
 import "./Card.scss";
+// materialUI icons
+import Favorite from "@mui/icons-material/Favorite";
+import ModeCommentIcon from "@mui/icons-material/ModeComment";
+
 function Card(props) {
   const [liked, setLiked] = useState(false); // Declaring liked using useState
   const [showComments, setShowComments] = useState(false);
@@ -38,43 +43,39 @@ function Card(props) {
     setLiked(!liked); // Setting liked to true after dispatching action
   };
   return (
-    <Carddiv key={id}>
-      <div className="avatar-div">
-        <img src={author_avatar} className="avatar_post"></img>
-        <p>author</p>
-      </div>
-      <div className="content-post">
-        <div className="author-div">
-          <p>{author_name}</p>
-          <p>Posted 6 months ago</p>
+    <>
+      <Carddiv key={id}>
+        <div className="avatar-div">
+          <img src={author_avatar} className="avatar_post"></img>
+          <p>author</p>
         </div>
+        <div className="content-post">
+          <div className="author-div">
+            <p className="author-name">{author_name}</p>
+            <p className="author-date">Posted 6 months ago</p>
+          </div>
 
-        <h2>{title}</h2>
-        <p>body: {body}</p>
-        <p>likes: {likes}</p>
-        {media ? <img src={media} style={{ width: "100%" }}></img> : ""}
-        <ButtonLiked
-          liked={liked}
-          key={liked}
-          onClick={() => handleLike({ id })}
-        >
-          {liked ? "Unlike Post" : "Like Post"}
-        </ButtonLiked>
-        <ButtonComments
-          disabled={comments >= 1 ? false : true}
-          onClick={() => setShowComments(!showComments)}
-        >
-          {comments >= 1 ? "Show Comments" : "No Comments"}
-        </ButtonComments>
-        <CommentInputDiv>
-          <input type="text" placeholder="Make a comment"></input>
-          <PrimaryButton>Comment</PrimaryButton>
-        </CommentInputDiv>
-        <CommentContainer>
-          {showComments ? <DisplayComments postID={id} /> : ""}
-        </CommentContainer>
-      </div>
-    </Carddiv>
+          <h2>{title}</h2>
+          <p>body: {body}</p>
+          <div className="post-buttons">
+            <BtnLikes onClick={() => handleLike({ id })} liked={liked}>
+              <Favorite className="like-icon" />
+              <p>{likes}</p>
+            </BtnLikes>
+
+            <BtnComments onClick={() => setShowComments(!showComments)}>
+              <ModeCommentIcon />
+              <p>{comments}</p>
+            </BtnComments>
+          </div>
+
+          {media ? <img src={media} style={{ width: "100%" }}></img> : ""}
+        </div>
+      </Carddiv>
+      <CommentContainer>
+        {showComments ? <DisplayComments postID={id} /> : ""}
+      </CommentContainer>
+    </>
   );
 }
 
