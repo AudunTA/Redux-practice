@@ -8,7 +8,11 @@ const CommentsDiv = styled.div`
   background-color: var(--navy100);
   border-radius: 12px;
   width: 100%;
-  margin-left: 75px;
+  margin-left: 98px;
+  font-family: Poppins;
+  :hover {
+    background-color: var(--navyHover);
+  }
 `;
 const token = localStorage.getItem("accessToken");
 console.log(token);
@@ -42,14 +46,14 @@ function DisplayComments(props) {
         ? comments.map((ele) => {
             return (
               <div className="comment" key={ele.id}>
-                <div className="comment-avatar">
+                <div className="avatar-div">
                   <img src={ele.author.avatar} className="avatar_post"></img>
                   <p>author</p>
                 </div>
                 <div className="comment-section">
-                  <p>{ele.author.name}</p>
-                  <p>Posted 6 months ago</p>
-                  <p>{ele.body}</p>
+                  <p className="author-name">{ele.author.name}</p>
+                  <p className="author-date">Posted 6 months ago</p>
+                  <p className="post-body">{ele.body}</p>
                 </div>
               </div>
             );

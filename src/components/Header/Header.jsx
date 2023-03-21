@@ -6,8 +6,9 @@ import {
   ButtonPrimary,
   NavDiv,
   SearchIconHeader,
-} from "./styles/Header.styled";
+} from "../styles/Header.styled";
 import SearchIcon from "@mui/icons-material/Search";
+import "./Header.scss";
 function Header(props) {
   const baseUrl = props.baseUrl;
   console.log(baseUrl);
@@ -53,16 +54,14 @@ function Header(props) {
       <h1>Logo</h1>
       <NavDiv>
         <ul>
-          <li>Explore</li>
+          <li className="nav-Active">Explore</li>
           <li>Friends</li>
           <li>About</li>
           <li>Contact</li>
         </ul>
       </NavDiv>
       <div className="input-fields">
-        <SearchIconHeader>
-          <SearchIcon />
-        </SearchIconHeader>
+        <SearchIcon className="search-icon" />
 
         <p>Sign In</p>
       </div>

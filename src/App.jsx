@@ -1,7 +1,7 @@
 import "./App.css";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 
 import "@fontsource/poppins";
 import { Routes, Route } from "react-router-dom";

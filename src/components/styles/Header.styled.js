@@ -25,6 +25,7 @@ export const NavDiv = styled.div`
   }
   li {
     margin: 0 5px;
+    cursor: pointer;
   }
 `;
 export const SearchIconHeader = styled.div`

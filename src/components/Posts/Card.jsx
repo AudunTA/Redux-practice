@@ -56,7 +56,16 @@ function Card(props) {
           </div>
 
           <h2>{title}</h2>
-          <p>body: {body}</p>
+          <p className="post-body">{body}</p>
+          {media ? (
+            <img
+              src={media}
+              className="img-card"
+              style={{ width: "100%" }}
+            ></img>
+          ) : (
+            ""
+          )}
           <div className="post-buttons">
             <BtnLikes onClick={() => handleLike({ id })} liked={liked}>
               <Favorite className="like-icon" />
@@ -68,8 +77,6 @@ function Card(props) {
               <p>{comments}</p>
             </BtnComments>
           </div>
-
-          {media ? <img src={media} style={{ width: "100%" }}></img> : ""}
         </div>
       </Carddiv>
       <CommentContainer>
