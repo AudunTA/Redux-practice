@@ -1,4 +1,40 @@
 .homepage-container {
+  display: grid;
+  max-width: 1400px;
+  margin: auto;
+  grid-template-columns: 1fr 1.5fr 1fr;
+}
+
+.top-feed {
   display: flex;
-  justify-content: center;
+  font-family: Poppins;
+  background-color: var(--navy200);
+  border-radius: 12px;
+  transition: 0.3s;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 98px;
+  color: white;
+}
+.top-feed:hover {
+  background-color: var(--navyHover);
+}
+.top-feed p {
+  padding-left: 20px;
+  font-size: 13px;
+}
+.flex-class {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+.left-div {
+  position: fixed;
+  background-color: var(--navy200);
+  max-width: 250px;
+  max-height: 300px;
+  padding: 20px;
+  background-color: var(--navy200);
+  margin-top: 20px;
+  border-radius: 12px;
 }
