@@ -29,14 +29,12 @@ function Card(props) {
   const media = props.item.media;
   const author_avatar = props.item.author.avatar;
   const author_name = props.item.author.name;
-  console.log(author_avatar);
   const dispatch = useDispatch();
   const handleLike = (postID) => {
     const sendID = postID.id;
     if (liked) {
       dispatch(unLikePost(sendID));
     } else {
-      console.log(sendID);
       dispatch(likePost(sendID));
     }
 

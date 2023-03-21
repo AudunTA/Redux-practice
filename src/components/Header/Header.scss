@@ -2,6 +2,13 @@
   display: flex;
   align-items: center;
 }
+.input-fields p {
+  font-family: Poppins;
+  color: #ffffff;
+  font-size: 13px;
+  margin-left: 10px;
+  cursor: pointer;
+}
 .search-icon {
   align-items: center;
   background-color: #182a46;
@@ -9,7 +16,9 @@
   padding: 5px;
   font-size: 25px;
   border-radius: 12px;
+  cursor: pointer;
 }
 .nav-Active {
   color: white;
+  transition: 0.3s;
 }

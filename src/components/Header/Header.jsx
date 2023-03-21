@@ -10,8 +10,9 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import "./Header.scss";
 function Header(props) {
+  const activeNav = props.active;
+  const navChange = props.changeNav;
   const baseUrl = props.baseUrl;
-  console.log(baseUrl);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleLoggin = () => {};
@@ -24,6 +25,25 @@ function Header(props) {
   const onPasswordChange = (e) => {
     setPassword(e.target.value);
   };
+  const navItems = [
+    {
+      id: 1,
+      name: "Explore",
+    },
+    {
+      id: 2,
+      name: "Friends",
+    },
+    {
+      id: 3,
+      name: "About",
+    },
+
+    {
+      id: 4,
+      name: "Contact",
+    },
+  ];
   const handleLogIn = async () => {
     const user = {
       email: email,
@@ -54,10 +74,21 @@ function Header(props) {
       <h1>Logo</h1>
       <NavDiv>
         <ul>
-          <li className="nav-Active">Explore</li>
-          <li>Friends</li>
-          <li>About</li>
-          <li>Contact</li>
+          {navItems.map((ele) => {
+            if (ele.name === activeNav) {
+              return (
+                <li key={ele.id} className="nav-Active">
+                  {ele.name}
+                </li>
+              );
+            } else {
+              return (
+                <li key={ele.id} onClick={() => navChange(ele.name)}>
+                  {ele.name}
+                </li>
+              );
+            }
+          })}
         </ul>
       </NavDiv>
       <div className="input-fields">
