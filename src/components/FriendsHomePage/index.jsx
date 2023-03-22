@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import "./FindFriends.scss";
 const FriendsDiv = styled.div`
   position: ${(props) => (props.position ? "fixed" : "")};
-  top: ${(props) => (props.position ? "10px" : "")};
+  top: ${(props) => (props.position ? "50px" : "")};
   padding: 10px;
   margin: 20px;
   max-width: 250px;

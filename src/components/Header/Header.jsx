@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   HeaderDiv,
@@ -9,7 +9,6 @@ import {
 } from "../styles/Header.styled";
 import SearchIcon from "@mui/icons-material/Search";
 import "./Header.scss";
-
 function Header(props) {
   const activeNav = props.active;
   const navChange = props.changeNav;
@@ -45,6 +44,23 @@ function Header(props) {
       name: "Contact",
     },
   ];
+  const [isFixed, setIsFixed] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.pageYOffset > 100) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const handleLogIn = async () => {
     const user = {
       email: email,
@@ -71,7 +87,7 @@ function Header(props) {
     console.log(email, password);
   };
   return (
-    <HeaderDiv>
+    <HeaderDiv position={isFixed}>
       <h1>Logo</h1>
       <NavDiv>
         <ul>

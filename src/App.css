@@ -6,4 +6,6 @@
 }
 body {
   background-color: var(--backgroundDark);
+  background-image: url("./assets/upper-gradient.svg");
+  background-repeat: no-repeat;
 }

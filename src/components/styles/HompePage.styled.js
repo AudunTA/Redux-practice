@@ -8,7 +8,7 @@ export const FlexClass = styled.div`
 
 export const LeftDiv = styled.div`
   position: ${(props) => (props.position ? "fixed" : "")};
-  top: ${(props) => (props.position ? "10px" : "")};
+  top: ${(props) => (props.position ? "50px" : "")};
   background-color: var(--navy200);
   max-width: 250px;
   max-height: 300px;

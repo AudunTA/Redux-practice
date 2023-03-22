@@ -1,9 +1,16 @@
 import styled from "styled-components";
+
 export const HeaderDiv = styled.div`
+  position: ${(props) => (props.position ? "fixed" : "")};
+  width: 100%;
+  z-index: 22;
+  background-color: rgb(24 39 63);
   display: flex;
   border: 1px solid black;
   justify-content: space-between;
   align-items: center;
+  height: 50px;
+  transition: 0.3s;
 `;
 export const LogginInputs = styled.input`
   border: 1px solid black;

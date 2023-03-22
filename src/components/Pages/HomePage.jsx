@@ -9,13 +9,14 @@ import "./HomePage.scss";
 import FriendsAPI from "../API/FindFriends";
 import { LeftDiv, FlexClass } from "../styles/HompePage.styled";
 import { useEffect, useState } from "react";
+
 function HomePage() {
   const dispatch = useDispatch();
   const postsState = useSelector((state) => state.posts);
   const [isFixed, setIsFixed] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
-      if (window.pageYOffset > 50) {
+      if (window.pageYOffset > 100) {
         setIsFixed(true);
       } else {
         setIsFixed(false);
@@ -32,7 +33,7 @@ function HomePage() {
   FriendsAPI();
   return (
     <div className="homepage-container">
-      <FlexClass>
+      <FlexClass data-aos="fade-right">
         <LeftDiv position={isFixed}>
           <p>lorem lorem lorem lorem lorem lorem lorem lorem lorem</p>
         </LeftDiv>
