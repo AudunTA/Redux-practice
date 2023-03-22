@@ -7,18 +7,36 @@ import { FeedDiv } from "../styles/Feed.styled";
 import FriendsContainer from "../FriendsHomePage";
 import "./HomePage.scss";
 import FriendsAPI from "../API/FindFriends";
+import { LeftDiv, FlexClass } from "../styles/HompePage.styled";
+import { useEffect, useState } from "react";
 function HomePage() {
   const dispatch = useDispatch();
   const postsState = useSelector((state) => state.posts);
+  const [isFixed, setIsFixed] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.pageYOffset > 50) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   PostsAPI();
   FriendsAPI();
   return (
     <div className="homepage-container">
-      <div className="flex-class">
-        <div className="left-div">
+      <FlexClass>
+        <LeftDiv position={isFixed}>
           <p>lorem lorem lorem lorem lorem lorem lorem lorem lorem</p>
-        </div>
-      </div>
+        </LeftDiv>
+      </FlexClass>
 
       <FeedDiv>
         <div className="top-feed">
@@ -36,7 +54,7 @@ function HomePage() {
       </FeedDiv>
 
       <div>
-        <FriendsContainer />
+        <FriendsContainer position={isFixed} />
       </div>
     </div>
   );

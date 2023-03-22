@@ -9,6 +9,7 @@ import {
 } from "../styles/Header.styled";
 import SearchIcon from "@mui/icons-material/Search";
 import "./Header.scss";
+
 function Header(props) {
   const activeNav = props.active;
   const navChange = props.changeNav;
