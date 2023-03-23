@@ -35,7 +35,10 @@ function HomePage() {
     <div className="homepage-container">
       <FlexClass data-aos="fade-right">
         <LeftDiv position={isFixed}>
-          <p>lorem lorem lorem lorem lorem lorem lorem lorem lorem</p>
+          <p>
+            lorem lorem lorem lorem lorem lorem lorem lorem lorem left div this
+            is the div where profile info will be
+          </p>
         </LeftDiv>
       </FlexClass>
 
