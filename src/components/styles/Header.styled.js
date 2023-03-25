@@ -11,6 +11,12 @@ export const HeaderDiv = styled.div`
   align-items: center;
   height: 50px;
   transition: 0.3s;
+  h1 {
+    margin-left: 10px;
+  }
+  p {
+    margin-right: 10px;
+  }
 `;
 export const LogginInputs = styled.input`
   border: 1px solid black;
