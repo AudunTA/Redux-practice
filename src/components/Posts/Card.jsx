@@ -44,7 +44,13 @@ function Card(props) {
     <>
       <Carddiv key={id}>
         <div className="avatar-div">
-          <img src={author_avatar} className="avatar_post"></img>
+          <div className="avatar-img-div">
+            <img src={author_avatar} className="avatar_post"></img>
+            <div className="hover-avatar-div">
+              <p>Hover</p>
+            </div>
+          </div>
+
           <p>author</p>
         </div>
         <div className="content-post">
@@ -56,11 +62,13 @@ function Card(props) {
           <h2>{title}</h2>
           <p className="post-body">{body}</p>
           {media ? (
-            <img
-              src={media}
-              className="img-card"
-              style={{ width: "100%" }}
-            ></img>
+            <div className="image-div">
+              <img
+                src={media}
+                className="img-card"
+                style={{ width: "100%" }}
+              ></img>
+            </div>
           ) : (
             ""
           )}
